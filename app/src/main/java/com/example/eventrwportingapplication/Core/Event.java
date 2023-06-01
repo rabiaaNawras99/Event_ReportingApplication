@@ -7,7 +7,7 @@ import com.example.eventrwportingapplication.Enums.RiskLevel;
 import com.example.eventrwportingapplication.Enums.Region;
 
 public class Event {
-    //murad asked for:
+    //murad asked for:okok
     private EventType eventType;
     private Bitmap Img = null;
     private String eventDescription;
