@@ -12,14 +12,14 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 
 
-    EditText usernameEditText;
-    EditText passwordEditText;
-    Button loginButton;
+    private EditText usernameEditText;
+    private EditText passwordEditText;
+    private Button loginButton;
 
 
-    String[] allowedUsernames = {"user1", "user2", "user3"};
+    private String[] allowedUsernames = {"user1", "user2", "user3"};
 
-    String correctPassword = "1234";
+    private String correctPassword = "1234";
 
 
     @Override
@@ -31,15 +31,18 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.editTextTextPassword);
         loginButton = findViewById(R.id.button_login);
 
-        loginButton.setOnClickListener(v -> {
-            String username = usernameEditText.getText().toString();
-            String password = passwordEditText.getText().toString();
-            if (isValidLogin(username, password)) {
-                Intent intent = new Intent(LoginActivity.this, AddEventActivity.class);
-                startActivity(intent);
-                finish();
-            } else {
-                Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = usernameEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+                if (isValidLogin(username, password)) {
+                    Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
