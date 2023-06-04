@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/event_card_view"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    card_view:cardCornerRadius="7dp"
-    card_view:cardElevation="10dp">
+    android:layout_height="match_parent"
+    tools:context=".EditFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -27,16 +23,16 @@
                 android:text="Event Type"
                 android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/input_text_view_event_type"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edit_text_event_type"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:hint="///"></TextView>
+                android:layout_marginLeft="20dp"></EditText>
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -47,19 +43,16 @@
                 android:text="Location"
                 android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/input_text_view_event_location"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edit_text_event_location"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="42dp"
-                android:hint="///">
-
-            </TextView>
+                android:layout_marginLeft="25dp"></EditText>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -70,16 +63,16 @@
                 android:text="Description"
                 android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/input_text_view_event_description"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edit_text_event_description"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:hint="///"></TextView>
+                android:layout_marginLeft="25dp"></EditText>
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -90,18 +83,16 @@
                 android:text="Region"
                 android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/input_text_view_event_region"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edit_text_event_region"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:hint="///">
+                android:layout_marginLeft="25dp"></EditText>
 
-            </TextView>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -112,16 +103,16 @@
                 android:text="Risk Level"
                 android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/input_text_view_event_risk_level"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edit_text_event_risk_level"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:hint="///"></TextView>
+                android:layout_marginLeft="25dp"></EditText>
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -133,34 +124,17 @@
                 android:textColor="@color/black" />
 
             <ImageView
-                android:id="@+id/image_view_event"
-                android:layout_width="50dp"
-                android:layout_height="50dp"></ImageView>
+                android:id="@+id/edit_image_view_event"
+                android:layout_width="100dp"
+                android:layout_height="100dp"></ImageView>
         </LinearLayout>
 
-        <LinearLayout
+        <Button
+            android:id="@+id/edit_save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/delete_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete"
-                android:visibility="visible"></Button>
-
-            <Button
-                android:id="@+id/edit_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="edit"
-                android:visibility="visible"></Button>
-
-        </LinearLayout>
+            android:text="save"></Button>
 
     </LinearLayout>
 
-
-</androidx.cardview.widget.CardView>
+</FrameLayout>

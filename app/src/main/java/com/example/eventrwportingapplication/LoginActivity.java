@@ -1,5 +1,6 @@
 package com.example.eventrwportingapplication;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordEditText.getText().toString();
                 if (isValidLogin(username, password)) {
                     Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                    intent.putExtra("username" , username);
                     startActivity(intent);
                     finish();
                 } else {

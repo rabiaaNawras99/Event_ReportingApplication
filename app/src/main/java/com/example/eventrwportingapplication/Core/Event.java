@@ -2,20 +2,28 @@ package com.example.eventrwportingapplication.Core;
 
 import android.graphics.Bitmap;
 import android.location.Location;
-
 import com.example.eventrwportingapplication.Enums.EventType;
 import com.example.eventrwportingapplication.Enums.RiskLevel;
 import com.example.eventrwportingapplication.Enums.Region;
 import com.example.eventrwportingapplication.R;
 
-public class Event {
+import java.io.Serializable;
+
+public class Event implements Serializable {
+//    new i want to use it in db
+    private int id;
+
     //murad asked for:okok
     private EventType eventType;
-    private String location;
+    private Bitmap Img = null;
     private String description;
+    private String location;
+
     private Region region;
     private RiskLevel riskLevel;
-    private Bitmap Img = null;
+    private String userID;
+
+
 
 
 
@@ -29,13 +37,33 @@ public class Event {
 //    private int totalPositiveVoted = 0;
 
 
-    public Event(EventType eventType, String location, String description, Region region, RiskLevel riskLevel, Bitmap img) {
+    public Event(){
+
+    }
+    public Event(String userID,EventType eventType, String location, String description, Region region, RiskLevel riskLevel, Bitmap img) {
         this.eventType = eventType;
         this.location = location;
         this.description = description;
         this.region = region;
         this.riskLevel = riskLevel;
+        this.userID = userID;
         Img = img;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public EventType getEventType() {
