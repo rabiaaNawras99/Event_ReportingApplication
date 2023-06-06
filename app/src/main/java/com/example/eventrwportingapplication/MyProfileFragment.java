@@ -56,12 +56,12 @@ public class MyProfileFragment extends Fragment implements EventsAdapter.onEditC
 
     public List<Event> getEventsDemo() {
         List<Event> events = new ArrayList<>();
-        events.add(new Event("user1", EventType.health, "qq1", "ss1", Region.Haifa_District, RiskLevel.easy, null));
-        events.add(new Event("user2", EventType.health, "qq2", "ss2", Region.Haifa_District, RiskLevel.easy, null));
-        events.add(new Event("user1", EventType.health, "qq3", "s3s", Region.Haifa_District, RiskLevel.easy, null));
+        events.add(new Event("user1", EventType.SECURITY, "qq1", "ss1", Region.SouthDistrict, RiskLevel.Extreme, null));
+        events.add(new Event("user2", EventType.OTHER, "qq2", "ss2", Region.SouthDistrict, RiskLevel.Extreme, null));
+        events.add(new Event("user1", EventType.ENVIRONMENTAL, "qq3", "s3s", Region.SouthDistrict, RiskLevel.Medium, null));
 
-        events.add(new Event("user2", EventType.health, "qq4", "ss4", Region.Haifa_District, RiskLevel.easy, null));
-        events.add(new Event("user1", EventType.environmental, "dddqq", "sdds", Region.Central_District, RiskLevel.easy, null));
+        events.add(new Event("user2", EventType.ENVIRONMENTAL, "qq4", "ss4", Region.CentralDistrict, RiskLevel.Hard, null));
+        events.add(new Event("user1", EventType.ENVIRONMENTAL, "dddqq", "sdds", Region.JerusalemDistrict, RiskLevel.Medium, null));
 
         List<Event> filteredEvents = new ArrayList<>();
         for (Event e : events) {

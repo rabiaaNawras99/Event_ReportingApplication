@@ -2,110 +2,177 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/reportForm_title"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Event repoting formsdxdsds"
-        android:textSize="40dp"
-        android:gravity="center_horizontal"
-        android:layout_above="@+id/item_scroll_view"
-        />
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
 
-    <ScrollView
-        android:id="@+id/item_scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:layout_margin="20dp" >
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/event_type"
+                android:id="@+id/text_view_event_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:labelFor="@+id/item_title_txt"
-                android:textSize="16dp"
-                android:text="event type" />
+                android:text="Event Type"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Spinner
+                android:id="@+id/spinnerInputEventType"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:entries="@array/array1_OfEventType" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_view_event_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/item_title_txt"
+                android:id="@+id/add_editText_event_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_view_event_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/add_editText_event_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/item_title_lbl"
-                android:inputType="text" />
-
-            <TextView
-                android:id="@+id/item_desc_lbl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/item_title_txt"
-                android:labelFor="@+id/item_desc_txt"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:text="add event description" />
-
-            <EditText
-                android:id="@+id/item_desc_txt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/item_desc_lbl"
                 android:inputType="textMultiLine"
                 android:lines="4"
                 android:maxLines="10"
                 android:scrollbars="vertical"></EditText>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_view_event_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Region"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Spinner
+                android:id="@+id/spinnerInput_eventRegion"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:entries="@array/array2_OfEventRegion" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_view_event_risk_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Risk Level"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Spinner
+                android:id="@+id/spinnerInput_event_risk_level"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:entries="@array/array3_OfEventRiskLevel" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_view_event_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Image"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
             <ImageView
-                android:id="@+id/item_img1"
+                android:id="@+id/add_image_view_to_event"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_below="@+id/item_desc_txt"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp" />
-        </RelativeLayout>
-    </ScrollView>
+                android:layout_gravity="center"></ImageView>
+        </LinearLayout>
+    </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/buttons_ll"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+    <Button
+        android:id="@+id/add_event_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="right|bottom"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/transparent"
+        android:text="save"
+        android:textColor="#2b90d4"
+        android:textSize="16dp"
+        android:textStyle="bold"></Button>
 
-        <Button
-            android:id="@+id/save_item_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="15dp"
-            android:background="@android:color/transparent"
-            android:text="save event"
-            android:textColor="#2b90d4" />
+    <Button
+        android:id="@+id/add_photo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/camera" />
 
-        <Button
-            android:id="@+id/add_photo_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/camera" />
-
-        <Button
-            android:id="@+id/delete_item_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/garbage_can" />
-
-    </RelativeLayout>
+    <Button
+        android:id="@+id/delete_event_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/garbage_can" />
 
 </RelativeLayout>

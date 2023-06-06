@@ -13,18 +13,22 @@ import android.widget.ImageButton;
 
 
 import com.example.eventrwportingapplication.Core.Event;
+import com.example.eventrwportingapplication.Core.User;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomePageActivity extends AppCompatActivity {
     private ImageButton imagButtonHome;
     private Button myProfileBtn;
+
     private EventsAdapter adapter;
     private List<Event> events;
     private FragmentManager fragmentManager;
-    private String currentUser;
+
+    private Button addEventTest;
+    private String username;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +39,12 @@ public class HomePageActivity extends AppCompatActivity {
         EventManager.getInstance().openDataBase(this);
 
 
-
         // set current user
         Intent intent = getIntent();
-        currentUser = intent.getStringExtra("username");
-        // DB.setUser(currentuser)
+        username = intent.getStringExtra("username");
+        EventManager.getInstance().setSelectedUser(new User(username));
+
+
         fragmentManager = getFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         HomeFragment homeFragment = new HomeFragment();
@@ -68,15 +73,18 @@ public class HomePageActivity extends AppCompatActivity {
                 ft.replace(R.id.root_view, homeFragment);
                 ft.addToBackStack(null);
                 ft.commit();
+            }
+        });
 
-
+        addEventTest = findViewById(R.id.add_event_TEST_btn);
+        addEventTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomePageActivity.this,AddEventActivity.class);
+                startActivity(intent);
             }
         });
     }
-
-
-
-
 
 //    public <T extends Fragment> void  updateFragment(T fragment){
 //        fragmentManager = getFragmentManager();
@@ -86,4 +94,6 @@ public class HomePageActivity extends AppCompatActivity {
 //        ft.addToBackStack(null);
 //        ft.commit();
 //    }
+
+
 }

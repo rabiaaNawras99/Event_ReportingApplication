@@ -30,14 +30,15 @@
             android:id="@+id/my_profile_btn"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="My profile"></Button>
+            android:text="My profile"
+            android:layout_marginLeft="10dp"></Button>
+        <Button
+            android:id="@+id/add_event_TEST_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="add event"
+            android:layout_marginLeft="10dp"></Button>
 
     </LinearLayout>
-
-
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-    <!--        android:id="@+id/event_card_recyclerview"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent" />-->
 
 </LinearLayout>

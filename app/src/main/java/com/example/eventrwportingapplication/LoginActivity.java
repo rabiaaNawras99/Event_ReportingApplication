@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         //inflate views:
         usernameEditText = findViewById(R.id.editTextTextPersonName);
         passwordEditText = findViewById(R.id.editTextTextPassword);

@@ -2,4 +2,28 @@
     <string name="app_name">Event RwportingApplication</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="array1_OfEventType">
+        <item>HEALTH</item>
+        <item>ENVIRONMENTAL</item>
+        <item>SECURITY</item>
+        <item>OTHER</item>
+    </string-array>
+
+    <string-array name="array2_OfEventRegion">
+        <item>NorthDistrict</item>
+        <item>HaifaDistrict</item>
+        <item>CentralDistrict</item>
+        <item>TelAvivDistrict</item>
+        <item>JerusalemDistrict</item>
+        <item>SouthDistrict</item>
+    </string-array>
+
+    <string-array name="array3_OfEventRiskLevel">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+        <item>Extreme</item>
+    </string-array>
 </resources>

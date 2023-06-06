@@ -25,8 +25,6 @@ public class Event implements Serializable {
 
 
 
-
-
     //we think we need also :
 //    private String eventId;
 
@@ -38,7 +36,6 @@ public class Event implements Serializable {
 
 
     public Event(){
-
     }
     public Event(String userID,EventType eventType, String location, String description, Region region, RiskLevel riskLevel, Bitmap img) {
         this.eventType = eventType;
@@ -48,6 +45,16 @@ public class Event implements Serializable {
         this.riskLevel = riskLevel;
         this.userID = userID;
         Img = img;
+    }
+
+
+    public Event(EventType eventType, String location, String description, Region region, RiskLevel riskLevel, String userId) {
+        this.eventType = eventType;
+        this.location = location;
+        this.description = description;
+        this.region = region;
+        this.riskLevel = riskLevel;
+        this.userID = userId;
     }
 
     public int getId() {

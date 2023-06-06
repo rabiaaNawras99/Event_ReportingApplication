@@ -1,10 +1,7 @@
 package com.example.eventrwportingapplication;
 
-import android.annotation.SuppressLint;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
-
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,8 +43,8 @@ public class HomeFragment extends Fragment  {
     }
 
     private void initializeData() {
-        List<Event> list = EventManager.getInstance().getAllEvents();
-//        List<Event> list = getEventsDemo();
+//        List<Event> list = EventManager.getInstance().getAllEvents();
+        List<Event> list = getEventsDemo();
         if (list != null && list.size() > 0) {
             EventsAdapter adapter = new EventsAdapter(list, FragmentName.Home, null);
             LinearLayoutManager ll = new LinearLayoutManager(getActivity());
@@ -59,12 +56,12 @@ public class HomeFragment extends Fragment  {
 
     public List<Event> getEventsDemo() {
         List<Event> events = new ArrayList<>();
-        events.add(new Event("user1",EventType.health, "qq1", "ss1", Region.Haifa_District, RiskLevel.easy, null));
-        events.add(new Event("user2",EventType.health, "qq2", "ss2", Region.Haifa_District, RiskLevel.easy, null));
-        events.add(new Event("user1",EventType.health, "qq3", "s3s", Region.Haifa_District, RiskLevel.easy, null));
+        events.add(new Event("user1",EventType.HEALTH, "qq1", "ss1", Region.HaifaDistrict, RiskLevel.Easy, null));
+        events.add(new Event("user2",EventType.OTHER, "qq2", "ss2", Region.JerusalemDistrict, RiskLevel.Extreme, null));
+        events.add(new Event("user1",EventType.ENVIRONMENTAL, "qq3", "s3s", Region.NorthDistrict, RiskLevel.Hard, null));
 
-        events.add(new Event("user2",EventType.health, "qq4", "ss4", Region.Haifa_District, RiskLevel.easy, null));
-        events.add(new Event("user1",EventType.environmental, "dddqq", "sdds", Region.Central_District, RiskLevel.easy, null));
+        events.add(new Event("user2",EventType.ENVIRONMENTAL, "qq4", "ss4", Region.CentralDistrict, RiskLevel.Easy, null));
+        events.add(new Event("user1",EventType.SECURITY, "dddqq", "sdds", Region.HaifaDistrict, RiskLevel.Medium, null));
         return events;
     }
 }

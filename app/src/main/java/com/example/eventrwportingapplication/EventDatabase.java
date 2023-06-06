@@ -25,8 +25,8 @@ public class EventDatabase extends SQLiteOpenHelper {
     //user table
     private static final String TABLE_USER_NAME = "users";
     private static final String USER_COLUMN_ID = "username";
-    private static final String USER_COLUMN_Password = "password";
-    private static final String[] TABLE_USER_COLUMNS = {USER_COLUMN_ID, USER_COLUMN_Password};
+
+    private static final String[] TABLE_USER_COLUMNS = {USER_COLUMN_ID};
 
     //event table
     private static final String TABLE_EVENTS_NAME = "events";
@@ -47,7 +47,6 @@ public class EventDatabase extends SQLiteOpenHelper {
 
     public EventDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
 
     @Override
@@ -55,8 +54,7 @@ public class EventDatabase extends SQLiteOpenHelper {
         try {
             // SQL statement to create user table
             String CREATE_USER_TABLE = "create table if not exists " + TABLE_USER_NAME + " ( "
-                    + USER_COLUMN_ID + " TEXT PRIMARY KEY, "
-                    + USER_COLUMN_Password + " TEXT)";
+                    + USER_COLUMN_ID + " TEXT PRIMARY KEY)";
             sqLiteDatabase.execSQL(CREATE_USER_TABLE);
 
             // SQL statement to create event table
@@ -74,8 +72,8 @@ public class EventDatabase extends SQLiteOpenHelper {
         } catch (Throwable t) {
             t.printStackTrace();
         }
-
     }
+
     /*
     If we uploaded a new version or added a new field to the table,
      in onUpgrade we define a query that adjusts what we changed in the new version
@@ -95,7 +93,6 @@ public class EventDatabase extends SQLiteOpenHelper {
     }
 
     public void createEvent(User user, Event event) {
-
         try {
             // make values to be inserted
             ContentValues values = new ContentValues();
@@ -135,7 +132,11 @@ public class EventDatabase extends SQLiteOpenHelper {
             // make values to be inserted
             ContentValues values = new ContentValues();
             values.put(USER_COLUMN_ID, user.getUsername());
-            values.put(USER_COLUMN_Password, user.getPassword());
+
+//            db.query(TABLE_USER_NAME, USER_COLUMN_ID, EVENT_COLUMN_USERID + " = ?",
+//                    new String[]{String.valueOf(userId)}, null, null,
+//                    null, null);
+//
 
             // insert folder
             db.insert(TABLE_USER_NAME, null, values);
@@ -147,7 +148,6 @@ public class EventDatabase extends SQLiteOpenHelper {
     public int updateEvent(Event event) {
         int cnt = 0;
         try {
-
             // make values to be inserted
             ContentValues values = new ContentValues();
             values.put(EVENT_COLUMN_EVENT_TYPE, event.getEventType().toString());
@@ -155,7 +155,6 @@ public class EventDatabase extends SQLiteOpenHelper {
             values.put(EVENT_COLUMN_LOCATION, event.getLocation());
             values.put(EVENT_COLUMN_REGION, event.getRegion().toString());
             values.put(EVENT_COLUMN_RISK_LEVEL, event.getRiskLevel().toString());
-
 
             //images
             Bitmap image1 = event.getImg();
@@ -182,6 +181,7 @@ public class EventDatabase extends SQLiteOpenHelper {
         }
         return cnt;
     }
+
 
     public void deleteEvent(Event event) {
 
@@ -335,6 +335,4 @@ public class EventDatabase extends SQLiteOpenHelper {
             t.printStackTrace();
         }
     }
-
-
 }

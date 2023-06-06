@@ -1,6 +1,8 @@
 package com.example.eventrwportingapplication;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.util.Log;
 
 import com.example.eventrwportingapplication.Core.Event;
 import com.example.eventrwportingapplication.Core.User;
@@ -22,6 +24,18 @@ public class EventManager {
     private User selectedUser = null;
 
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //today
+    private Bitmap takenPostPicture = null;
+
+    public Bitmap getTakenPostPicture() {
+        return takenPostPicture;
+    }
+
+    public void setTakenPostPicture(Bitmap takenPostPicture) {
+        this.takenPostPicture = takenPostPicture;
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////
     //Singleton
     public static EventManager getInstance() {
         if (instance == null) {
@@ -44,8 +58,15 @@ public class EventManager {
         }
     }
 
+    public void createEvent(Event event) {
+        if (db != null) {
+
+            db.createEvent(getSelectedUser(), event);
+        }
+    }
+
     public List<Event> getAllEvents() {
-        List<Event> result = new ArrayList<Event>();
+        List<Event> result = new ArrayList<>();
         if (db != null) {
             result = db.getAllEvents();
         }
@@ -60,8 +81,33 @@ public class EventManager {
         return result;
 
     }
+    public void updateEvent(Event event) {
+        if (db != null && event != null) {
+            db.updateEvent(event);
+        }
+    }
 
+    public void deleteEvent(Event event) {
+        if (db != null) {
+            db.deleteEvent(event);
+        }
+    }
 
+    public Event getSelectedEvent() {
+        return selectedEvent;
+    }
+
+    public void setSelectedEvent(Event selectedEvent) {
+        this.selectedEvent = selectedEvent;
+    }
+
+    public User getSelectedUser() {
+        return selectedUser;
+    }
+
+    public void setSelectedUser(User selectedUser) {
+        this.selectedUser = selectedUser;
+    }
 
 
 }
